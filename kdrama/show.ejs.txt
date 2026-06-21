@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title><%= show.title %></title>
+</head>
+<body>
+    <div class="show-details">
+        <h1><%= show.title %></h1>
+        <p><strong>Genre:</strong> <%= show.genre %></p>
+        <p><strong>Release Date:</strong> <%= show.releaseDate %></p>
+        <p><strong>Description:</strong> <%= show.description %></p>
+        <div class="media-links">
+            <h2>Watch Now:</h2>
+            <% if (show.mediaLinks && show.mediaLinks.length) { %>
+                <ul>
+                    <% show.mediaLinks.forEach(link => { %>
+                        <li><a href="<%= link %>" target="_blank">Watch Here</a></li>
+                    <% }); %>
+                </ul>
+            <% } else { %>
+                <p>No media links available.</p>
+            <% } %>
+        </div>
+        <a href="/" class="back-button">Back to Shows</a>
+    </div>
+</body>
+</html>
